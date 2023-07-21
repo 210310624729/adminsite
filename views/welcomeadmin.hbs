@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+   <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+   }
+
+   .navbar {
+        background-color: #318CE7;
+        color: white;
+        
+        padding: 3px;
+        text-align: left;
+        display: flex;
+   }
+
+   .navbar h1 {
+        margin: 0;
+        padding: 16px;
+        font-size: 18px;
+        font-weight: lighter;
+   }
+
+   /*back button */
+   .backbutton
+   {
+     color: #ffffff;
+     text-decoration: none;
+     font-size: 18px;
+     
+   }
+
+   /* Login form styles */
+   .login-form {
+        margin: 240px auto;
+
+        text-align: center;
+   }
+   .signup-form {
+        margin: 180px auto;
+
+        text-align: center;
+   }
+
+   .login-form input {
+        margin: 10px;
+        padding: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+   }
+   /* buttons*/
+
+
+   .login-button {
+        margin-top: 20px;
+
+        padding: 10px;
+        
+        background-color: #318CE7;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+        width:60px;
+        
+   }
+   .signup-button
+   {
+     margin-top: 20px;
+     
+          padding: 10px 10px;
+          background-color: #318CE7;
+          color: white;
+          border: none;
+          cursor: pointer;
+          border-radius: 3px;
+          width: 75px;
+
+   }
+   .save-button
+   {margin: 0px;
+     height: fit-content;
+     text-align: center;
+
+     padding: 10px 10px;
+     background-color: #318CE7;
+     color: white;
+     border: none;
+     cursor: pointer;
+     border-radius: 3px;
+     width: 100%;
+
+   }
+
+   .floating-input {
+        position: relative;
+        margin-bottom: 30px;
+   }
+
+   .floating-input label {
+        position: absolute;
+        pointer-events: none;
+        left: 10px;
+        top: 10px;
+        transition: 0.2s ease all;
+        color: #999;
+   }
+
+   .floating-input input {
+        font-size: 16px;
+        padding: 10px;
+        display: block;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #999;
+        transition: 0.2s ease all;
+   }
+
+   .floating-input input:focus {
+        outline: none;
+        border-bottom: 2px solid #318CE7;
+   }
+
+   .floating-input input:focus+label,
+   .floating-input input:valid+label {
+        top: -12px;
+        font-size: 12px;
+        color: #318CE7;
+   }
+    .floating-input label {
+         position: absolute;
+         pointer-events: none;
+         left: 10px;
+         top: 10px;
+         transition: 0.2s ease all;
+         color: #999;
+    }
+
+    .floating-input select {
+         font-size: 16px;
+         padding: 10px;
+         display: block;
+         width: 100%;
+         border: none;
+         border-bottom: 1px solid #999;
+         transition: 0.2s ease all;
+    }
+
+    .floating-input select:focus {
+         outline: none;
+         border-bottom: 2px solid #318CE7;
+    }
+
+    .floating-input select:focus+label,
+    .floating-input select:valid+label {
+         top: -6px;
+         font-size: 10px;
+         color: #318CE7;
+    }
+
+    .submit-button {
+         margin-top: 20px;
+         padding: 10px 10px;
+         background-color: #318CE7;
+         color: white;
+         border: none;
+         cursor: pointer;
+
+         border-radius: 3px;
+    }
+
+    .content {
+         margin-top: 25px;
+
+    }
+
+   .signup {
+        color: #aa8c32;
+        text-decoration: none;
+
+
+   }
+
+   
+
+   
+
+   .submit-button {
+        margin-top: 20px;
+
+        padding: 10px 10px;
+        background-color: #318CE7;
+
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+   }
+ 
+ 
+ /* Mobile menu styles */
+ .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 350px;
+      height: 100vh;
+      background-color: #ffffff;
+      color: #070707;
+      padding: 20px;
+      transition: left 0.3s ease-in-out;
+      z-index: 9999;
+ }
+
+ .mobile-menu.active {
+      left: 0;
+      padding: 0;
+      margin: 0;
+ }
+
+ .mobile-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+ }
+
+ .mobile-menu ul li {
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      margin: 0;
+ }
+
+ .mobile-menu ul li:hover {
+      padding: 12px;
+      font-size: 16px;
+      background-color: rgba(113, 109, 109, 0.3);
+      border: none;
+      margin: 0;
+ }
+
+ .mobile-menu ul li a {
+      color: #000000;
+      text-decoration: none;
+ }
+
+ /* Button styles */
+ .menu-button {
+      width: 35px;
+      height: 30px;
+      background-color: transparent;
+      color: white;
+      border: none;
+
+
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      margin-left: 13px;
+      margin-top: 15px;
+      margin-right: 0px;
+      justify-content: space-between;
+ }
+
+ .menu-button span {
+      display: block;
+
+
+      width: 100%;
+      height: 5px;
+      background-color: white;
+ }
+
+
+ .menu-button:before,
+ .menu-button:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 3px;
+      background-color: white;
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+ }
+
+ .menu-button:before {
+      transform: translate(-50%, -50%) rotate(45deg);
+ }
+
+ .menu-button:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+ }
+
+ /* Overlay styles */
+ .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+ }
+
+ .overlay.active {
+      visibility: visible;
+      opacity: 1;
+ }
+
+ .mobile-menu div {
+      height: 29%;
+      padding: none;
+      background-color: #318CE7;
+
+ }
+
+ .options li {
+      margin-top: 10px;
+ }
+ 
+ /* styling select and ans*/
+ 
+   </style>
+</head>
+
+<body>
+     <div class="navbar">
+          <div class="menu-button" onclick="toggleMobileMenu()">
+               &#9776;
+          </div>
+          <h1 style="padding-left: 0px;">Welcome</h1>
+     </div>
+
+   <div class="dashboard" style="margin-top:25px ;">
+      <div class="dashboard-card" style="background-color: rgba(93, 219, 93, 0.2);">
+         <h3>Success</h3>
+         <p class="request-count-success">100</p>
+      </div>
+      <div class="dashboard-card" style="background-color: rgba(214, 90, 90, 0.2);">
+         <h3>Failed</h3>
+         <p class="request-count-failed">20</p>
+      </div>
+      <div class="dashboard-card" style="background-color: rgba(184, 184, 89, 0.2);">
+         <h3>Pending</h3>
+         <p class="request-count-pending">50</p>
+      </div>
+   </div>
+<div>
+   <div class="table-section successchart"><h3>Success</h3>
+      <table>
+         <tr>
+            <th>Transaction ID</th>
+            <th>Status</th>
+            <th>Date</th>
+         </tr>
+         <tr>
+            <td>1</td>
+            <td>Success</td>
+            <td>2023-06-01</td>
+         </tr>
+         <tr>
+            <td>2</td>
+            <td>success</td>
+            <td>2023-06-02</td>
+         </tr>
+         <tr>
+            <td>3</td>
+            <td>success</td>
+            <td>2023-06-03</td>
+         </tr>
+      </table>
+   </div>
+
+   <div class="table-section  pendingchart" ><h3>Pending</h3>
+      <table>
+         <tr>
+            <th>Transaction ID</th>
+            <th>Status</th>
+            <th>Date</th>
+         </tr>
+         <tr>
+            <td>4</td>
+            <td>pending</td>
+            <td>2023-06-04</td>
+         </tr>
+         <tr>
+            <td>5</td>
+            <td>pending</td>
+            <td>2023-06-05</td>
+         </tr>
+         <tr>
+            <td>6</td>
+            <td>Pending</td>
+            <td>2023-06-06</td>
+         </tr>
+      </table>
+   </div>
+
+   <div class="table-section failedchart"><h3>Failed</h3>
+      <table>
+         <tr>
+            <th>Transaction ID</th>
+            <th>Status</th>
+            <th>Date</th>
+         </tr>
+         <tr>
+            <td>7</td>
+            <td>failed</td>
+            <td>2023-06-07</td>
+         </tr>
+         <tr>
+            <td>8</td>
+            <td>Failed</td>
+            <td>2023-06-08</td>
+         </tr>
+         <tr>
+            <td>9</td>
+            <td>failed</td>
+            <td>2023-06-09</td>
+         </tr>
+      </table>
+   </div>
+   </div>
+   <div class="mobile-menu" id="mobileMenu">
+          <div>
+               <h2 style="color: #ffffff; margin-top: 0%;font-size: 38px;font-weight: lighter;">Sub Admin</h2>
+          </div>
+          <ul class="options">
+               <li><a href="#">Add Service Area</a></li>
+               <li><a href="#">Verify Driver</a></li>
+               <li><a href="#">Add Vehicle</a></li>
+          </ul>
+     </div>
+
+     <div class="overlay" id="overlay"></div>
+
+     <script src="mobilemenu.js"></script>
+     
+
+   
+</body>
+
+</html>
